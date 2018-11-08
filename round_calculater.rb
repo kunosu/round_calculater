@@ -1,6 +1,5 @@
-=begin
-
-=end
+# minitestを読み込み
+require 'minitest/autorun'
 
 END{
 	puts("\n終了します。。。")
