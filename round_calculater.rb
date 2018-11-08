@@ -29,6 +29,12 @@ end
 
 
 
+# 必要周回数を得る
+def get_need_round_num(points_want, points_get_one_round, points_now)
+	# (欲しいポイント数 - 現在のポイント数)/(1周で得るポイント数)の切り上げ
+	return ((points_want - points_now)/points_get_one_round).ceil
+end
+
 # --------------------------------
 #   main
 # --------------------------------
@@ -45,8 +51,8 @@ points_want = 100000	# 欲しいポイント数
 points_get_one_round = 950	# 得るポイント数/1周
 # ポイント上昇率%
 
-# 必要周回数 = (欲しいポイント数 - 現在のポイント数)/(1周で得るポイント数)の切り上げ
-need_round_num = ((points_want - points_now)/points_get_one_round).ceil
+# 必要周回数
+need_round_num = get_need_round_num(points_want, points_get_one_round, points_now)
 
 # 出力する
 printf("必要周回数: %d\n", need_round_num)
