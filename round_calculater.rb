@@ -26,12 +26,25 @@ def input_num(print_str = "整数値を入力: ")
 	return in_num.to_i
 end
 
+class Round_num
+	attr_reader :points_now				# 現在のポイント数
+	attr_reader :points_want			# 欲しいポイント数
+	attr_reader :points_get_one_round	# 得るポイント数/1周
 
+	def initialize(points_now, points_want, points_get_one_round)
+		@points_now = points_now
+		@points_want = points_want
+		@points_get_one_round = points_get_one_round
+	end
 
-# 必要周回数を得る
-def get_need_round_num(points_want, points_get_one_round, points_now)
-	# (欲しいポイント数 - 現在のポイント数)/(1周で得るポイント数)の切り上げ
-	return ((points_want - points_now)/points_get_one_round).ceil
+	# 必要周回数を得る
+	def get_need_round_num()
+		# (欲しいポイント数 - 現在のポイント数)/(1周で得るポイント数)
+		need_round_num = (points_want - points_now)/points_get_one_round
+
+		return need_round_num.ceil	# 切り上げ
+	end
+
 end
 
 # --------------------------------
@@ -43,16 +56,19 @@ puts("--------------------------------")
 
 # 必要情報を入力
 # スタミナ回復速度(分)
-points_now = 0	# 現在のポイント数
 # 現在のスタミナ
-points_want = 100000	# 欲しいポイント数
 # 消費スタミナ/1周
-points_get_one_round = 950	# 得るポイント数/1周
 # ポイント上昇率%
 
-# 必要周回数
-need_round_num = get_need_round_num(points_want, points_get_one_round, points_now)
+class Round_num_Test < Minitest::Test
+	round_num = Round_num.new(0, 100000, 950)
 
-# 出力する
-printf("必要周回数: %d\n", need_round_num)
+	# 必要周回数
+	need_round_num = round_num.get_need_round_num()
+
+	# 出力する
+	printf("必要周回数: %d\n", need_round_num)
+
+end
+
 
