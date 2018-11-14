@@ -26,7 +26,7 @@ def input_num(print_str = "整数値を入力: ")
 	return in_num.to_i
 end
 
-class Round_num
+class Player
 	attr_reader :points_now				# 現在のポイント数
 	attr_reader :points_want			# 欲しいポイント数
 	attr_reader :points_get_one_round	# 得るポイント数/1周
@@ -61,7 +61,7 @@ puts("--------------------------------")
 # ポイント上昇率%
 
 class Round_num_Test < Minitest::Test
-	round_num = Round_num.new(0, 100000, 950)
+	round_num = Player.new(0, 100000, 950)
 
 	# 必要周回数
 	need_round_num = round_num.get_need_round_num()
