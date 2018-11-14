@@ -24,12 +24,17 @@ class Player
 
 	# 必要周回数を得る
 	def need_round_num
-		# (欲しいポイント数 - 現在のポイント数)/(1周で得るポイント数)
-		need_round_num = (points_goal - points_now)/points_get_one_round
+		# (必要ポイント数)/(1周で得るポイント数)
+		need_round_num = points_need/points_get_one_round
 
 		return need_round_num.ceil	# 切り上げ
 	end
 
+	# 必要ポイント数
+	def points_need
+		# 目標のポイント数 - 現在のポイント数
+		return points_goal - points_now
+	end
 end
 
 class Player_Test < Minitest::Test
@@ -40,8 +45,10 @@ class Player_Test < Minitest::Test
 	def test_need_round_num
 		assert_equal 105, @player.need_round_num
 	end
+
+	def test_points_need
+		assert_equal 100000, @player.points_need
+	end
 end
-
-
 
 printf("必要周回数: %d\n", Player.new(0, 100000, 950).need_round_num())
