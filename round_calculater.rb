@@ -34,19 +34,19 @@ end
 
 class Player
 	attr_reader :points_now				# 現在のポイント数
-	attr_reader :points_want			# 欲しいポイント数
+	attr_reader :points_goal			# 目標のポイント数
 	attr_reader :points_get_one_round	# 得るポイント数/1周
 
-	def initialize(points_now, points_want, points_get_one_round)
+	def initialize(points_now, points_goal, points_get_one_round)
 		@points_now = points_now
-		@points_want = points_want
+		@points_goal = points_goal
 		@points_get_one_round = points_get_one_round
 	end
 
 	# 必要周回数を得る
-	def get_need_round_num()
+	def need_round_num
 		# (欲しいポイント数 - 現在のポイント数)/(1周で得るポイント数)
-		need_round_num = (points_want - points_now)/points_get_one_round
+		need_round_num = (points_goal - points_now)/points_get_one_round
 
 		return need_round_num.ceil	# 切り上げ
 	end
@@ -58,11 +58,11 @@ class Player_Test < Minitest::Test
 		@player = Player.new(0, 100000, 950)
 	end
 
-	def test_get_need_round_num
-		assert_equal 105, @player.get_need_round_num()
+	def test_need_round_num
+		assert_equal 105, @player.need_round_num
 	end
 end
 
 
 
-printf("必要周回数: %d\n", Player.new(0, 100000, 950).get_need_round_num())
+printf("必要周回数: %d\n", Player.new(0, 100000, 950).need_round_num())
