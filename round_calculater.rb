@@ -12,9 +12,9 @@ END{
 }
 
 class Player
-	attr_reader :points_now				# 現在のポイント数
-	attr_reader :points_goal			# 目標のポイント数
-	attr_reader :points_get_one_round	# 得るポイント数/1周
+	attr_reader :points_now				# 現在のポイント数(整数値)
+	attr_reader :points_goal			# 目標のポイント数(整数値)
+	attr_reader :points_get_one_round	# 得るポイント数/1周(0以下はエラー)
 
 	def initialize(points_now: 0, points_goal: , points_get_one_round: )
 		@points_now = points_now
@@ -39,7 +39,7 @@ end
 
 class Player_Test < Minitest::Test
 	def setup
-		@player = Player.new(points_now: 0, points_goal: 100000, points_get_one_round: 950)
+		@player = Player.new(points_now: 10, points_goal: 100000, points_get_one_round: 950)
 	end
 
 	def test_need_round_num
@@ -47,10 +47,10 @@ class Player_Test < Minitest::Test
 	end
 
 	def test_points_need
-		assert_equal 100000, @player.points_need
+		assert_equal 99990, @player.points_need
 	end
 end
 
-player = Player.new(points_now: 0, points_goal: 100000, points_get_one_round: 950)
+player = Player.new(points_now: 10, points_goal: 100000, points_get_one_round: 950)
 
 printf("必要周回数: %d\n", player.need_round_num)
