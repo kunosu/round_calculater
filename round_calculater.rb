@@ -53,15 +53,16 @@ class Player
 
 end
 
-class Round_num_Test < Minitest::Test
-	round_num = Player.new(0, 100000, 950)
+class Player_Test < Minitest::Test
+	def setup
+		@player = Player.new(0, 100000, 950)
+	end
 
-	# 必要周回数
-	need_round_num = round_num.get_need_round_num()
-
-	# 出力する
-	printf("必要周回数: %d\n", need_round_num)
-
+	def test_get_need_round_num
+		assert_equal 105, @player.get_need_round_num()
+	end
 end
 
 
+
+printf("必要周回数: %d\n", Player.new(0, 100000, 950).get_need_round_num())
