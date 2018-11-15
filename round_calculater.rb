@@ -1,5 +1,4 @@
-# minitestを読み込み
-require 'minitest/autorun'
+require './Player_class.rb'
 
 BEGIN{
 	puts("--------------------------------")
@@ -10,55 +9,6 @@ BEGIN{
 END{
 	puts("\n終了します。。。\n")
 }
-
-class Player
-	attr_reader :points_now				# 現在のポイント数(整数値)
-	attr_reader :points_goal			# 目標のポイント数(整数値)
-	attr_reader :points_get_one_round	# 得るポイント数/1周(0以下はエラー)
-
-	def initialize(points_now: 0, points_goal: , points_get_one_round: )
-		@points_now = points_now
-		@points_goal = points_goal
-		@points_get_one_round = points_get_one_round
-	end
-
-	# 必要周回数を得る
-	def need_round_num
-		# (必要ポイント数)/(1周で得るポイント数)
-		need_round_num = points_need/points_get_one_round
-
-		return need_round_num.ceil	# 切り上げ
-	end
-
-	# 必要ポイント数
-	def points_need
-		# 目標のポイント数 - 現在のポイント数
-		return points_goal - points_now
-	end
-end
-
-class Player_Test < Minitest::Test
-	def setup
-		@player = Player.new(points_now: 10, points_goal: 100000, points_get_one_round: 950)
-	end
-
-	def test_need_round_num
-		assert_equal 105, @player.need_round_num
-	end
-
-	def test_need_round_num_ZeroDivisionError
-		player = Player.new(points_now: 10, points_goal: 100000, points_get_one_round: 0)
-
-		# 0除算のエラーが発生することを期待
-		assert_raises(ZeroDivisionError) do
-			player.need_round_num
-		end
-	end
-
-	def test_points_need
-		assert_equal 99990, @player.points_need
-	end
-end
 
 player = Player.new(points_now: 10, points_goal: 100000, points_get_one_round: 950)
 
