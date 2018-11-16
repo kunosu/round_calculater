@@ -1,4 +1,4 @@
-require './Player_class.rb'
+require './class/Player_class.rb'
 
 BEGIN{
 	puts("--------------------------------")
