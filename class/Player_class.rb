@@ -1,7 +1,7 @@
 class Player
 	attr_reader :points_now				# 現在のポイント数(整数値)
 	attr_reader :points_goal			# 目標のポイント数(整数値)
-	attr_reader :points_get_one_round	# 得るポイント数/1周(0以下はエラー)
+	attr_reader :points_get_one_round	# 得るポイント数/1周(0はエラー)
 
 	def initialize(points_now: 0, points_goal: , points_get_one_round: )
 		@points_now = points_now
