@@ -10,20 +10,17 @@ END{
 	puts("\n終了します。。。\n")
 }
 
-def input_num(print_str)
+def input_str(print_str)
 	printf(print_str)
 
 	num = gets
 
-	# 得た文字列を数値にして返す
-	return num.to_i
+	return num
 end
 
-points_now = input_num("現在のポイント数: ")
-
-points_goal = input_num("目標のポイント数: ")
-
-points_get_one_round = input_num("得るポイント数/1周: ")
+points_now = input_str("現在のポイント数: ")
+points_goal = input_str("目標のポイント数: ")
+points_get_one_round = input_str("得るポイント数/1周: ")
 
 player = Player.new(points_now: points_now, points_goal: points_goal, points_get_one_round: points_get_one_round)
 
