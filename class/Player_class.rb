@@ -1,10 +1,14 @@
+require "./class/Num_check_module.rb"
+
 class Player
+	include Num_check
+
 	attr_reader :points_now, :points_goal, :points_get_one_round
 
 	def initialize(points_now: 0, points_goal: , points_get_one_round: )
-		@points_now = points_now						# 現在のポイント数(整数値)
-		@points_goal = points_goal						# 目標のポイント数(整数値)
-		@points_get_one_round = points_get_one_round	# 得るポイント数/1周(0はエラー)
+		@points_now = positive_int_check(points_now)						# 現在のポイント数
+		@points_goal = positive_int_check(points_goal)						# 目標のポイント数
+		@points_get_one_round = zero_check(positive_int_check(points_get_one_round))	# 得るポイント数/1周(0はエラー)
 	end
 
 	# 必要周回数を得る
