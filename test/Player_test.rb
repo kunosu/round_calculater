@@ -1,5 +1,5 @@
 require 'minitest/autorun'	# minitestを読み込み
-require_relative './Player_class.rb'
+require_relative '../lib/Player.rb'
 
 class Player_Test < Minitest::Test
 	attr_reader :player

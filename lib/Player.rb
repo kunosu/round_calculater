@@ -1,4 +1,4 @@
-require_relative "./Num_check_module.rb"
+require_relative "./Num_check.rb"
 
 class Player
 	include Num_check
