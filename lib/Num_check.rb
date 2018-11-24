@@ -1,30 +1,25 @@
-module Num_check
-	# 整数なら文字列を整数に変換して返す
-	def integer_check(num)
-		if num =~ /^[0-9]+$/
-			return num.to_i
-		else
+module Ensure_str_num
+	# 整数か(ensure: 確保)
+	def ensure_integer(num)
+		if num !~ /^-{0,1}[0-9]+$/
 			raise ArgumentError, "#{num} は整数ではありません"
 		end
 	end
 
-	# 正の整数かチェック
-	def positive_int_check(num)
-		num = integer_check(num)
+	# 正の整数か
+	def ensure_positive_int(num)
+		ensure_integer(num)
 
-		if 0 <= num
-			return num
-		else
+		if 0 <= num.to_i
 			raise ArgumentError, "#{num} は正の整数ではありません"
 		end
 	end
 
 	# 0ならエラー
-	def zero_check(num)
-		if 0 == num
+	def ensure_not_zero(num)
+		ensure_integer(num)
+		if 0 == num.to_i
 			raise ArgumentError, "0以外の値を入力してください"
-		else
-			return num
 		end
 	end
 end
