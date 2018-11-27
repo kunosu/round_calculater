@@ -1,14 +1,14 @@
-require_relative "./Num_check.rb"
+require_relative "./Ensure_str_num.rb"
 
 class Player
-	include Num_check
+	include Ensure_str_num
 
 	attr_reader :points_now, :points_goal, :points_get_one_round
 
 	def initialize(points_now: 0, points_goal: , points_get_one_round: )
-		@points_now = positive_int_check(points_now)						# 現在のポイント数
-		@points_goal = positive_int_check(points_goal)						# 目標のポイント数
-		@points_get_one_round = zero_check(positive_int_check(points_get_one_round))	# 得るポイント数/1周(0はエラー)
+		@points_now = ensure_positive_int(points_now)						# 現在のポイント数
+		@points_goal = ensure_positive_int(points_goal)						# 目標のポイント数
+		@points_get_one_round = ensure_not_zero(ensure_positive_int(points_get_one_round))	# 得るポイント数/1周(0はエラー)
 	end
 
 	# 必要周回数を得る
