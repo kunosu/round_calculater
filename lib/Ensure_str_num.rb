@@ -1,3 +1,4 @@
+# 文字列が数字でなければエラーを返す
 module Ensure_str_num
 	# 整数か(ensure: 確保)
 	def ensure_integer(num)
@@ -10,7 +11,7 @@ module Ensure_str_num
 	def ensure_positive_int(num)
 		ensure_integer(num)
 
-		if 0 <= num.to_i
+		if num.to_i <= 0
 			raise ArgumentError, "#{num} は正の整数ではありません"
 		end
 	end

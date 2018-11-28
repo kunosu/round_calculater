@@ -7,6 +7,5 @@ ruby Ensure_str_num_test.rb
 
 echo.
 
-:label_end
 pause
 
