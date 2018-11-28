@@ -18,12 +18,17 @@ def input_str(print_str)
 	return str.to_i
 end
 
-points_now = input_str("現在のポイント数: ")
-points_goal = input_str("目標のポイント数: ")
-points_get_one_round = input_str("得るポイント数/1周: ")
+# 初期化用
+input_points = {:now => "現在のポイント数", 
+				:goal => "目標のポイント数", 
+				:get_one_round => "得るポイント数/1周"}
 
-player = Player.new(points_now: points_now, 
-					points_goal: points_goal, 
-					points_get_one_round: points_get_one_round)
+points = Hash.new()
+
+input_points.each do |key, value|
+	points[key] = input_str(value + ": ")
+end
+
+player = Player_factory.build(points)
 
 puts "必要周回数: #{player.need_round_num}"

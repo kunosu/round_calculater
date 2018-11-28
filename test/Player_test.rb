@@ -5,7 +5,7 @@ class Player_Test < Minitest::Test
 	attr_reader :player
 
 	def setup
-		@player = Player.new(points_now: 10, points_goal: 100000, points_get_one_round: 950)
+		@player = Player.new(10, 100000, 950)
 	end
 
 	def test_need_round_num
