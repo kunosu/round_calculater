@@ -1,4 +1,5 @@
 require_relative './lib/Player.rb'
+require_relative './lib/Player_factory.rb'
 
 BEGIN{
 	puts("--------------------------------")
@@ -14,7 +15,7 @@ def input_str(print_str)
 	printf(print_str)
 
 	str = gets
-	return str
+	return str.to_i
 end
 
 points_now = input_str("現在のポイント数: ")
