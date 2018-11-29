@@ -21,24 +21,24 @@ module Player_factory
 	end
 
 	# 整数か(ensure: 確保)
-	def ensure_integer(num)
-		if num !~ /^-{0,1}[0-9]+$/
-			raise ArgumentError, "#{num} は整数ではありません"
+	def ensure_integer(str_num)
+		if str_num !~ /^-{0,1}[0-9]+$/
+			raise ArgumentError, "#{str_num} は整数ではありません"
 		end
 	end
 	module_function :ensure_integer	# インスタンスメソッドにする
 
 	# 正の整数か
-	def ensure_positive_int(num)
-		if num.to_i <= 0
-			raise ArgumentError, "#{num} は正の整数ではありません"
+	def ensure_positive_int(str_num)
+		if str_num.to_i <= 0
+			raise ArgumentError, "#{str_num} は正の整数ではありません"
 		end
 	end
 	module_function :ensure_positive_int
 
 	# 0ならエラー
-	def ensure_not_zero(num)
-		if 0 == num.to_i
+	def ensure_not_zero(str_num)
+		if 0 == str_num.to_i
 			raise ArgumentError, "0以外の値を入力してください"
 		end
 	end

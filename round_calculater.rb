@@ -15,7 +15,7 @@ def input_str(print_str)
 	printf(print_str)
 
 	str = gets
-	return str.to_i
+	return str
 end
 
 # 初期化用
