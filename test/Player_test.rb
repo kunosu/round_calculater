@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 require 'minitest/autorun'
 require_relative '../lib/Player.rb'
 

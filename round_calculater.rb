@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 require_relative './lib/Player.rb'
 require_relative './lib/Player_factory.rb'
 
