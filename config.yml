@@ -1,0 +1,7 @@
+# 定義値の設定ファイル
+
+points:
+  now: 0
+  goal: 100000
+  get_one_round: 950
+
