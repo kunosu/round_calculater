@@ -1,5 +1,5 @@
 class Game
-	def initialize(stamina_minutes_recover)
+	def initialize(heal_interval)
 		
 	end
 

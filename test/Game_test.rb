@@ -6,10 +6,10 @@ require_relative '../lib/Game.rb'
 class Game_test < Minitest::Test
 	attr_reader :game
 
-	STAMINA_MINUTES_RECOVER = 5	# 1スタミナ回復するのにかかる時間(分)
+	HEAL_INTERVAL = 5	# 回復間隔(分)
 
 	def setup
-		@game = Game.new(STAMINA_MINUTES_RECOVER)
+		@game = Game.new(HEAL_INTERVAL)
 	end
 
 	# 一日で回復するスタミナ
