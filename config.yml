@@ -4,3 +4,6 @@ points:
   now: 0              # 現在のポイント数
   goal: 100000        # 目標のポイント数
   get_one_round: 950  # 得るポイント数/1周
+
+stamina:
+  heal_interval: 5  # 回復間隔(分)
