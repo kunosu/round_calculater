@@ -16,7 +16,8 @@ END{
 }
 
 player = Player_factory.build($YAML.points)
-game = Game.new($YAML.stamina[:heal_interval])
+game = Game.new($YAML.stamina[:heal_interval], $YAML.stamina[:cost_one_round])
 
 puts "必要周回数: #{player.need_round_num}"
-puts "一日で回復するスタミナ: #{game.stamina_day_recover}"
+puts "1日で回復するスタミナ: #{game.stamina_day_recover}"
+puts "1日の周回可能回数: #{game.round_num_day}"
