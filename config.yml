@@ -6,4 +6,5 @@ points:
   get_one_round: 950  # 得るポイント数/1周
 
 stamina:
-  heal_interval: 5  # 回復間隔(分)
+  heal_interval: 5  # 回復速度(分)
+  cost_one_round: 20  # 消費スタミナ/1周
