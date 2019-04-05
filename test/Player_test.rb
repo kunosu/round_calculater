@@ -27,6 +27,6 @@ class Player_Test < Minitest::Test
 
 	# 必要なポイントを得るのにかかる日数
 	def test_days_need
-		assert_equal 8, player.days_need(ROUND_NUM_DAY)
+		assert_equal 8, player.days_need
 	end
 end

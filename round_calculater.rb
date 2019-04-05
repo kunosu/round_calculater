@@ -21,3 +21,4 @@ game = Game.new($YAML.stamina[:heal_interval], $YAML.stamina[:cost_one_round])
 puts "必要周回数: #{player.need_round_num}"
 puts "1日で回復するスタミナ: #{game.stamina_day_recover}"
 puts "1日の周回可能回数: #{game.round_num_day}"
+puts "必要なポイントを得るのにかかる日数: #{player.days_need}"

@@ -25,5 +25,17 @@ class Player
 		# 目標のポイント数 - 現在のポイント数
 		return points_goal - points_now
 	end
+
+	# 必要なポイントを得るのにかかる日数
+	def days_need
+		# (必要周回数) / (1日の周回可能回数)
+		days_need = need_round_num.to_f / game.round_num_day
+
+		return days_need.ceil	# 切り上げ
+	end
+
+	def game
+		Game.new($YAML.stamina[:heal_interval], $YAML.stamina[:cost_one_round])
+	end
 end
 
