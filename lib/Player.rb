@@ -7,7 +7,7 @@ class Player
 		@points_get_one_round = points_get_one_round	# 得るポイント数/1周(0はエラー)
 	end
 
-	# 必要周回数を得る
+	# 必要周回数
 	def need_round_num
 		# (必要ポイント数)/(1周で得るポイント数)
 		need_round_num = points_need/points_get_one_round
