@@ -15,8 +15,8 @@ END{
 	puts("\n終了します。。。\n")
 }
 
-player = Player_factory.build($YAML.points)
 game = Game.new($YAML.stamina)
+player = Player_factory.build($YAML.points, game)
 
 puts "必要周回数: #{player.need_round_num}"
 puts "1日で回復するスタミナ: #{game.stamina_day_recover}"

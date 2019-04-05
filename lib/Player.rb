@@ -1,7 +1,7 @@
 class Player
-	attr_reader :points_now, :points_goal, :points_get_one_round
+	attr_reader :points_now, :points_goal, :points_get_one_round, :game
 
-	def initialize(points_now, points_goal, points_get_one_round)
+	def initialize(points_now, points_goal, points_get_one_round, game)
 		# 現在のポイント数
 		@points_now = points_now.to_f
 
@@ -10,6 +10,9 @@ class Player
 
 		# 得るポイント数/1周(0はエラー)
 		@points_get_one_round = points_get_one_round.to_f
+
+		# Gameクラスのインスタンス
+		@game = game
 	end
 
 	# 必要周回数
@@ -32,10 +35,6 @@ class Player
 		days_need = need_round_num.to_f / game.round_num_day
 
 		return days_need.ceil	# 切り上げ
-	end
-
-	def game
-		Game.new($YAML.stamina)
 	end
 end
 

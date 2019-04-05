@@ -12,7 +12,7 @@ class Player_Test < Minitest::Test
 	ROUND_NUM_DAY = 5	# 1日の周回可能回数
 
 	def setup
-		@player = Player.new(POINTS_NOW, POINTS_GOAL, POINTS_GET_ONE_ROUND)
+		@player = Player.new(POINTS_NOW, POINTS_GOAL, POINTS_GET_ONE_ROUND, nil)
 	end
 
 	# 必要周回数
