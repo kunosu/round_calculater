@@ -35,7 +35,7 @@ class Player
 	end
 
 	def game
-		Game.new($YAML.stamina[:heal_interval], $YAML.stamina[:cost_one_round])
+		Game.new($YAML.stamina)
 	end
 end
 
