@@ -2,9 +2,14 @@ class Player
 	attr_reader :points_now, :points_goal, :points_get_one_round
 
 	def initialize(points_now, points_goal, points_get_one_round)
-		@points_now = points_now						# 現在のポイント数
-		@points_goal = points_goal						# 目標のポイント数
-		@points_get_one_round = points_get_one_round	# 得るポイント数/1周(0はエラー)
+		# 現在のポイント数
+		@points_now = points_now.to_f
+
+		# 目標のポイント数
+		@points_goal = points_goal.to_f
+
+		# 得るポイント数/1周(0はエラー)
+		@points_get_one_round = points_get_one_round.to_f
 	end
 
 	# 必要周回数

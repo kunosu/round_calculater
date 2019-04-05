@@ -17,7 +17,7 @@ class Player_Test < Minitest::Test
 
 	# 必要周回数
 	def test_need_round_num
-		assert_equal 105, player.need_round_num
+		assert_equal 106, player.need_round_num
 	end
 
 	# 必要ポイント数
