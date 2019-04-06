@@ -3,7 +3,7 @@
 require 'minitest/autorun'
 require_relative '../lib/Player.rb'
 
-module Dummy_game
+class Dummy_Game
 	# 1日の周回可能回数
 	def self.round_num_day
 		14
@@ -22,7 +22,7 @@ class Player_Test < Minitest::Test
 		points = {now: POINTS_NOW, goal: POINTS_GOAL, get_one_round: POINTS_GET_ONE_ROUND}
 		points = Hashie::Mash.new(points)
 
-		@player = Player.new(points, Dummy_game)
+		@player = Player.new(points, Dummy_Game)
 	end
 
 	# 必要周回数
