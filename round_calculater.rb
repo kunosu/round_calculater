@@ -1,11 +1,13 @@
 # coding: UTF-8
 
+require_relative './lib/Config.rb'
 require_relative './lib/Player.rb'
 require_relative './lib/Player_factory.rb'
+require_relative './lib/Game.rb'
 
 BEGIN{
 	puts("--------------------------------")
-	puts("周回数計算機 ver. 1.1.0")
+	puts("周回数計算機 ver. 1.3.0")
 	puts("--------------------------------")	
 }
 
@@ -13,24 +15,15 @@ END{
 	puts("\n終了します。。。\n")
 }
 
-def input_str(print_str)
-	printf(print_str)
+game = Game.new($YAML.stamina)
+player = Player_factory.build($YAML.points, game)
 
-	str = gets
-	return str
-end
+puts "回復速度: \t\t#{$YAML.stamina[:heal_interval]} スタミナ/分"
+puts "現在のポイント数: \t#{$YAML.points[:now]} p"
+puts "目標のポイント数: \t#{$YAML.points[:goal]} p"
+puts "1周コスト: \t\t#{$YAML.stamina[:cost_one_round]} スタミナ/周"
+puts "1周の報酬: \t\t#{$YAML.points[:get_one_round]} p/周"
 
-# 初期化用
-input_points = {:now => "現在のポイント数", 
-				:goal => "目標のポイント数", 
-				:get_one_round => "得るポイント数/1周"}
-
-points = Hash.new()
-
-input_points.each do |key, value|
-	points[key] = input_str(value + ": ")
-end
-
-player = Player_factory.build(points)
-
-puts "必要周回数: #{player.need_round_num}"
+puts "\n----------------------------------------------------"
+puts "必要周回数: #{player.need_round_num}周"
+puts "残り #{player.points_need.to_i} ポイントを得るのにかかる日数: #{player.days_need}日"
