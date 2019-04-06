@@ -13,7 +13,6 @@ module Player_factory
 			ensure_positive_int(value)
 
 			points[key] = value.to_i	# 文字列を整数に変換
-			#p points[key]
 		end
 
 		obj = CLASS_NAME.new(points, game)

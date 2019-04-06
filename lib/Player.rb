@@ -29,7 +29,6 @@ class Player
 	def points_need
 		# 目標のポイント数 - 現在のポイント数
 		points_need = points_goal - points_now
-		#p points_need
 
 		return points_need
 	end
