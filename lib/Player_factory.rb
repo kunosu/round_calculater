@@ -4,16 +4,18 @@ module Player_factory
 	CLASS_NAME = Player
 
 	# クラスメソッドにする(includeでの呼び出し不可)
-	def self.build(points)
-		# 全ての引数が正の整数であることを確認
-		points.each_value do |value|
-			ensure_integer(value)
-			ensure_positive_int(value)
-		end
-
+	def self.build(points, game)
 		ensure_not_zero(points[:get_one_round])
 
-		obj = CLASS_NAME.new(points[:now], points[:goal], points[:get_one_round])
+		# 全ての引数が正の整数であることを確認
+		points.each do |key, value|
+			ensure_integer(value)
+			ensure_positive_int(value)
+
+			points[key] = value.to_i	# 文字列を整数に変換
+		end
+
+		obj = CLASS_NAME.new(points, game)
 	end
 
 	# 整数か(ensure: 確保)

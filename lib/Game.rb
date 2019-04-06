@@ -1,9 +1,11 @@
+require 'hashie'
+
 class Game
 	attr_reader :heal_interval, :cost_one_round
 	
-	def initialize(heal_interval, cost_one_round)
-		@heal_interval = heal_interval	# 回復速度(分)
-		@cost_one_round = cost_one_round	# 消費スタミナ/1周
+	def initialize(sutamina_array)
+		@heal_interval = sutamina_array[:heal_interval]	# 回復速度(分)
+		@cost_one_round = sutamina_array[:cost_one_round]	# 消費スタミナ/1周
 	end
 
 	# 1日で回復するスタミナ
